@@ -63,7 +63,7 @@ export default function TradingViewWidget() {
             'STD;TEMA',
           ],
           container_id: 'tradingview_56581',
-          refresh_interval: 3000, // 3초마다 업데이트 (밀리초 단위)
+          refresh_interval: 3000, 
         });
       }
     }

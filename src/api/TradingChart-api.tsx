@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRotateRight } from '@fortawesome/free-solid-svg-icons';
 
 export interface BithumbResponse {
   status: string;
@@ -49,8 +51,8 @@ export const TradingChartApi: React.FC<{
   }, [onDataLoaded]);
 
   return (
-    <div>
-      {loading && <p>Loading...</p>}
+    <div className='absolute translate-x-10 translate-y-[500px] z-50 font-bold text-2xl'>
+      {loading && <p><FontAwesomeIcon icon={faRotateRight} spin /></p>}
       {error && <p>Error: {error}</p>}
     </div>
   );

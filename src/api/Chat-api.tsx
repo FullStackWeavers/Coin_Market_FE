@@ -1,4 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* 
+eslint-disable @typescript-eslint/no-explicit-any 
+*/
+
+
 import { useState, useEffect } from "react";
 import EmojiBtn from "../components/emojiBtn/EmojiBtn";
 import { useDarkMode } from "../context/Dark-mode";
@@ -10,6 +14,28 @@ export default function ChattingWidget() {
   const { darkMode } = useDarkMode();
   const socketUrl = "ws://localhost:3030";
 
+  const socket = new WebSocket('ws://localhost:3030');
+
+  // 연결이 열릴 때
+  socket.addEventListener('open', () => {
+    socket.send('Hello Server!');
+  });
+
+  // 서버로부터 메시지를 받았을 때
+  socket.addEventListener('message', (event) => {
+      console.log('Message from server: ', event.data);
+  });
+
+  // 연결이 닫혔을 때
+  socket.addEventListener('close', (event) => {
+      console.log('Server Connection Closed', event);
+  });
+
+  // 에러가 발생했을 때
+  socket.addEventListener('error', (event) => {
+      console.error('WebSocket Error: ', event);
+  });
+  
   const { sendJsonMessage, lastJsonMessage, readyState } =
     useWebSocket(socketUrl);
 

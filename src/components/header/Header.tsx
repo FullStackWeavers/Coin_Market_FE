@@ -42,7 +42,6 @@ export default function Header() {
     >
     <LoginModal isModalOpen={isLoginModalOpen} onClose={closeLoginModal} />
       <div className="flex items-center justify-between h-[100%] min-w-[300px] overflow-hidden mx-[20px]">
-        {/* 로고 */}
         <a
           href="/"
           className='md:w-[300px] max-w-[40%]'
@@ -54,7 +53,6 @@ export default function Header() {
         </a>
 
         <div className='flex-1 max-w-[60%] h-[100%] flex flex-col items-end justify-center'>
-          {/* 다크모드 로그인키 */}
           <div className="flex mt-[30px]">
             <button
               className="mr-[40px] md:text-xl md:cursor-pointer md:hover:text-[#efda7a]"
@@ -96,7 +94,6 @@ export default function Header() {
           </div>
 
           <div className='group flex items-center justify-end m-[20px] mr-0 h-[100px] flex-wrap'>
-              {/* 관심목록 포트폴리오*/}
             <div className="mb-[8px]">
               <a
                 href="/favorites"
@@ -126,7 +123,6 @@ export default function Header() {
               </a>
             </div>
 
-            {/* 검색창 */}
             <div className="flex items-center  justify-start ml-[20px] mb-[10px] w-[190px] rounded-lg shadow-sm shadow-slate-200 group-focus-within:shadow-blue-400 hover:shadow-blue-400">
               <label htmlFor="search" className="ml-[10px]">
                 <FontAwesomeIcon icon={faSearch} style={{ paddingRight: "7px" }} />

@@ -19,6 +19,11 @@ export const NowPrice: React.FC = () => {
   );
   const [searchTerm, _setSearchTerm] = useState<string>("");
   const { darkMode } = useDarkMode();
+  const [bookmark, setBookmark] = useState(false)
+
+  const onBookmark = () => {
+    setBookmark(!bookmark)
+  }
 
   const onDataLoaded = (data: BithumbResponse) => {
     setResponseData(data);
@@ -117,16 +122,17 @@ export const NowPrice: React.FC = () => {
                   >
                     <td
                       className="md:flex-1 md:table-cell md:border-r md:border-gray-200"
-                      onClick={(e) => {
+                      onClick={
+                        (e) => {
                         e.stopPropagation();
-                        window.location.href = `/favorites`;
-                      }}
+                        window.location.href = `/favorites`;}
+                      }
                     >
                       <button
                         id="favorite"
                         className="w-full h-full hover:scale-150"
                       >
-                        <FontAwesomeIcon icon={faStar} className="w-[100%]" />
+                        <FontAwesomeIcon icon={faStar} className="w-[100%]" style={bookmark ? {color: '#ffb574'}: {color:"black"}} />
                       </button>
                     </td>
                     <td className="flex-1 py-2 border-r border-gray-200 md:flex-1 md:py-2 md:border-r md:border-gray-200 text-[4px] sm:text-[12px] md:text-[15px] lg:text-[17px]">
